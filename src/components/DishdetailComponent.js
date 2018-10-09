@@ -1,36 +1,27 @@
 import React, { Component } from 'react';
-//import { Media } from 'reactstrap';
 import { Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap';
 
 
 class Dish extends Component {
-	
-//	constructor(props) {
-//		super(props);		
-
-//		this.state = {
-//			selectedDish: this.props.dish
-//		};
-//	}
-
-//onDishSelect(dish){
-//	this.setState({selectedDish: dish});
-//}
-	
+		
 	render(){		
 
 		if (this.props.dish != null){ 
 
 			const comments = this.props.dish.comments.map((comment) => {
 				return(
-						<CardBody>
-							<CardText>-- {comment.author} , {comment.date}</CardText>
-							<CardText>Comment: {comment.comment}</CardText>
-						</CardBody>
+						<ul>
+							<p>-- {comment.author} , {new Intl.DateTimeFormat('en-US',
+							{ year: 'numeric', month: 'short', day: '2-digit' })
+							.format(new Date(Date.parse(comment.date)))}</p>
+							<p>Comment: {comment.comment}</p>
+						</ul>
 				);
 			});
-
+			
 			return (
+
+			<div className= "container">
 				<div className="row">
 					<div className="col-12 col-md-5 m-1">
 						<Card>
@@ -42,15 +33,14 @@ class Dish extends Component {
 						</Card>
 					</div>
 					<div className="col-12 col-md-5 m-1">
-						<Card>
-							<CardBody>
-								<CardTitle>Comments</CardTitle>
-								<CardText>Imagineall these eatables, living in ConFusion!</CardText>
-							</CardBody>
-							{comments}
-						</Card>
+						<ul>
+							<h4>Comments</h4>
+							<p>Imagine all these eatables, living in ConFusion!</p>
+						</ul>
+						{comments}
 					</div>
-							</div>
+				</div>
+			</div>
 			);
 		}
 		else {
