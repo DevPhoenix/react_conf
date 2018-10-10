@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap';
 
-
-class Dish extends Component {
 		
-	render(){		
 
-		if (this.props.dish != null){ 
+	function RenderComments ({comments}){
+	
+		if (comments != null){ 
 
-			const comments = this.props.dish.comments.map((comment) => {
+			const commentsRendered = comments.map((comment) => {
 				return(
 						<ul>
 							<p>-- {comment.author} , {new Intl.DateTimeFormat('en-US',
@@ -18,29 +17,50 @@ class Dish extends Component {
 						</ul>
 				);
 			});
-			
-			return (
 
-			<div className= "container">
-				<div className="row">
-					<div className="col-12 col-md-5 m-1">
-						<Card>
-							<CardImg width="100%" object src={this.props.dish.image} alt={this.props.dish.name} />
-							<CardBody>
-								<CardTitle>{this.props.dish.name}</CardTitle>
-								<CardText>{this.props.dish.description}</CardText>
-							</CardBody>
-						</Card>
-					</div>
-					<div className="col-12 col-md-5 m-1">
-						<ul>
-							<h4>Comments</h4>
-							<p>Imagine all these eatables, living in ConFusion!</p>
-						</ul>
-						{comments}
+			return (
+				<div className="col-12 col-md-5 m-1">
+					<ul>
+						<h4>Comments</h4>
+						<p>Imagine all these eatables, living in ConFusion!</p>
+					</ul>
+					{commentsRendered}
+				</div>
+			);
+
+		}
+		else {
+			return (
+				<div></div>
+			);
+		}
+	}
+
+
+	function RenderDish ({dish}){
+		return (
+			<div className="col-12 col-md-5 m-1">
+				<Card>
+					<CardImg width="100%" object src={dish.image} alt={dish.name} />
+					<CardBody>
+						<CardTitle>{dish.name}</CardTitle>
+						<CardText>{dish.description}</CardText>
+					</CardBody>
+				</Card>
+			</div>
+		)
+	}
+
+	const DishDetail = (props) => {		
+
+		if (props.dish != null){ 			
+			return (
+				<div className= "container">
+					<div className="row">
+						<RenderDish dish={props.dish} />
+						<RenderComments comments={props.dish.comments} />
 					</div>
 				</div>
-			</div>
 			);
 		}
 		else {
@@ -50,6 +70,5 @@ class Dish extends Component {
 		}
 
 	}
-}
 
-export default Dish;  
+export default DishDetail;  
