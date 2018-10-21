@@ -26,33 +26,33 @@ class Header extends Component {
 				<Navbar dark expand="md">
 					<div className="container">
 						<NavbarToggler onClick={this.toggleNav}/>
-						<NavbarBrand ClassName="mr-auto" href="/">
-							<img src="assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
-						</NavbarBrand>
-						<Collapse isOpen={this.state.isNavOpen} navbar>
-							<Nav navbar>
-								<NavItem>
-									<NavLink className="nav-link" to="/home">
-										<span ClassName="fa fa-home fa-lg"></span> Home
-									</NavLink>
-								</NavItem>
-								<NavItem>
-									<NavLink className="nav-link" to="/aboutus">
-										<span ClassName="fa fa-info fa-lg"></span> About Us
-									</NavLink>
-								</NavItem>
-								<NavItem>
-									<NavLink className="nav-link" to="/menu">
-										<span ClassName="fa fa-list fa-lg"></span> Menu
-									</NavLink>
-								</NavItem>
-								<NavItem>
-									<NavLink className="nav-link" to="/contactus">
-										<span ClassName="fa fa-address-card fa-lg"></span> Contact Us
-									</NavLink>
-								</NavItem>
-							</Nav>
-						</Collapse>
+							<NavbarBrand ClassName="mr-auto" href="/">
+								<img src="assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
+							</NavbarBrand>
+							<Collapse isOpen={this.state.isNavOpen} navbar>
+								<Nav navbar>
+									<NavItem>
+										<NavLink className="nav-link" to="/home">
+											<span ClassName="fa fa-home fa-lg"></span> Home
+										</NavLink>
+									</NavItem>
+									<NavItem>
+										<NavLink className="nav-link" to="/aboutus">
+											<span ClassName="fa fa-info fa-lg"></span> About Us
+										</NavLink>
+									</NavItem>
+									<NavItem>
+										<NavLink className="nav-link" to="/menu">
+											<span ClassName="fa fa-list fa-lg"></span> Menu
+										</NavLink>
+									</NavItem>
+									<NavItem>
+										<NavLink className="nav-link" to="/contactus">
+											<span ClassName="fa fa-address-card fa-lg"></span> Contact Us
+										</NavLink>
+									</NavItem>
+								</Nav>
+							</Collapse>
 					</div>
 				</Navbar>
 				<Jumbotron>
